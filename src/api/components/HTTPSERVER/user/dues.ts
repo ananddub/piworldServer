@@ -1,20 +1,11 @@
 import { getImage } from "../../../../services/ImageSaveRetrive";
 import { curSession } from "../../../../services/sqlfunctoin";
+import { databaseID } from "../../../../services/variables";
 const mysql = require("mysql");
 const fs = require("fs");
 const path = require("path");
 async function sqlQuery(query: string) {
-  const db = mysql.createConnection({
-    // host: "89.117.188.154",
-    // user: "u932299896_eduwareApp",
-    // password: "Webgen@220310",
-    // database: "u932299896_sisdbApp",
-    host: "localhost",
-    user: "root",
-    password: "root",
-    database: "u932299896_sisdbApp",
-  });
-
+  const db = mysql.createConnection(databaseID);
   try {
     await new Promise((resolve, reject) => {
       db.connect((err: any) => {
